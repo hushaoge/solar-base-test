@@ -15,7 +15,7 @@ public class Consumer2 {
                 t.add("defualt");
             }
         };
-
+        /**写法一*/
        /* Consumer<List<String>> consumer2 = consumer.andThen(t -> {
             t.sort(new Comparator<String>() {
                 @Override
@@ -30,13 +30,27 @@ public class Consumer2 {
             });
             System.out.println(t);
         });*/
-        Consumer<List<String>> consumer2 = consumer.andThen(t -> t.sort((t1,t2) -> {
+       /**写法二*/
+        /*Consumer<List<String>> consumer2 = consumer.andThen(t -> t.sort((t1,t2) -> {
                 if(t1.length() > t2.length()){
                     return 1;
                 }else{
                     return -1;
                 }
             })
+        );*/
+        /**写法三*/
+        Consumer<List<String>> consumer2 = ((Consumer<List<String>>)(List<String> t) -> {
+            if(t != null) {
+                t.add("defualt");
+            }
+        }).andThen(t -> t.sort((t1,t2) -> {
+                    if(t1.length() > t2.length()){
+                        return 1;
+                    }else{
+                        return -1;
+                    }
+                })
         );
         List<String> l = new ArrayList<>();
         consumer2.accept(l);
