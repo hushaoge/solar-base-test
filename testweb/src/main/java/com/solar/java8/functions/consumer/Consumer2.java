@@ -53,6 +53,9 @@ public class Consumer2 {
                 })
         );
         List<String> l = new ArrayList<>();
+        l.add("1");
+        l.add("23455");
+        l.add("22");
         consumer2.accept(l);
         System.out.println(l);
     }
