@@ -8,6 +8,14 @@ import java.util.function.Function;
 public class FunctionTest2 {
     public static void main(String[] args) {
         Function<String, Integer> function = t -> Integer.valueOf(t);
-        //function.compose(t -> t >2);
+        Integer i = function.apply("1");
+        /**Boolean->String->Integer*/
+        Function<Boolean, Integer> booleanFunction = function.compose(t -> t? "1": "0");
+        System.out.println(booleanFunction.apply(Boolean.TRUE));
+
+        /**String->Integer->Boolean*/
+        Function<String, Boolean> integerFunction = function.andThen(t -> t > 0);
+        System.out.println(integerFunction.apply("1"));
+
     }
 }
