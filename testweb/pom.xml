@@ -78,6 +78,13 @@
       <version>6.8.5</version>
     </dependency>
 
+    <!-- google -->
+    <dependency>
+      <groupId>com.google.guava</groupId>
+      <artifactId>guava</artifactId>
+      <version>23.0</version>
+    </dependency>
+
   </dependencies>
   <build>
     <finalName>test-web</finalName>
