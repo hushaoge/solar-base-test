@@ -10,7 +10,10 @@ import javax.script.ScriptException;
 public class JsExcute {
     public static void main(String[] args) {
         ScriptEngineManager scriptEngineManager = new ScriptEngineManager();
+        /**"nashorn", "Nashorn", "js", "JS", "JavaScript", "javascript", "ECMAScript", "ecmascript"*/
         ScriptEngine nashorn = scriptEngineManager.getEngineByName("nashorn");
+        /*Optional<ScriptEngine> op = Optional.of(scriptEngineManager.getEngineByName("ecmascript"));
+        op.ifPresent(System.out::println);*/
 
         String name = "Runoob";
         Integer result = null;
